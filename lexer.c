@@ -18,11 +18,15 @@ int gettoken(struct lexer *l, struct token *t) {
     char ch_next = l->input[l->pos];
  
     switch (ch) {
-        case '\n':
         case ' ':
         case '\t':
         case '\r':
             t->type = TOKEN_WHITESPACE;
+            t->literal[0] = ch;
+            t->literal[1] = '\0';
+        break;
+        case '\n':
+            t->type = TOKEN_NEWLINE;
             t->literal[0] = ch;
             t->literal[1] = '\0';
         break;
@@ -134,6 +138,7 @@ int gettoken(struct lexer *l, struct token *t) {
             t->literal[1] = '\0';
         break;
 
+        // XXX(FIXME): re-design string parsing, include quotes.
         case '\'':
         case '"': {
             t->type = TOKEN_STRING;

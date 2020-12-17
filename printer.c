@@ -17,6 +17,14 @@ next_token (struct reader *r)
   gettoken (r->lexer, &r->next_token);
 }
 
+void render_comments(struct reader *r) {
+  while (r->current_token.type != TOKEN_EOF && r->current_token.type != TOKEN_NEWLINE) {
+        LOG_GRAY(r->current_token.literal);
+  	next_token(r);
+  }
+  printf("%s", r->current_token.literal);
+}
+
 struct reader
 new_reader (struct lexer *l)
 {
@@ -49,6 +57,11 @@ print_tokens (struct reader *r)
 	case TOKEN_IDENT:
 	  LOG_RED (r->current_token.literal);
 	  break;
+	case TOKEN_SLASH:
+	  if(r->next_token.type == TOKEN_SLASH) {
+	    render_comments(r);
+	    break;
+	  }
 	default:
 	  printf ("%s", r->current_token.literal);
 	  break;

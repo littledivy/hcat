@@ -6,7 +6,7 @@
 #define BLUE "\e[0;34m"
 #define MAGENTA "\e[0;35m"
 #define CYAN "\e[0;36m"
-#define WHITE "\e[0;37m"
+#define GRAY "\e[0;90m"
 #define reset "\e[0m"
 
 
@@ -14,4 +14,4 @@
 #define LOG_RED(X) printf("%s%s%s", RED, X, reset)
 #define LOG_YELLOW(X) printf("%s%s%s", YELLOW, X, reset)
 #define LOG_BLUE(X) printf("%s%s%s", BLUE, X, reset)
-#define LOG_WHITE(X) printf("%s%s%s", WHITE, X, reset)
+#define LOG_GRAY(X) printf("%s%s%s", GRAY, X, reset)
