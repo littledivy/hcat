@@ -2,11 +2,13 @@ package main
 
 import "fmt"
 
+go asd
+
 // Comments
 
 /// More comments /// Nested
 
-fn main() {
-  println(1);
+func main() {
+  fmt.Println(1);
 }
-
+///

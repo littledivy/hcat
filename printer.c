@@ -1,5 +1,7 @@
 #include "lexer.h"
 #include "color.h"
+#include "golang.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -22,6 +24,7 @@ void render_comments(struct reader *r) {
         LOG_GRAY(r->current_token.literal);
   	next_token(r);
   }
+  // Hmm..
   printf("%s", r->current_token.literal);
 }
 
@@ -55,7 +58,7 @@ print_tokens (struct reader *r)
 	  LOG_GREEN(quo);
 	 break;
 	case TOKEN_IDENT:
-	  LOG_RED (r->current_token.literal);
+	  print_token (r->current_token.literal);
 	  break;
 	case TOKEN_SLASH:
 	  if(r->next_token.type == TOKEN_SLASH) {
