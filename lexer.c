@@ -134,11 +134,13 @@ int gettoken(struct lexer *l, struct token *t) {
             t->literal[1] = '\0';
         break;
 
+        case '\'':
         case '"': {
             t->type = TOKEN_STRING;
+            char tok = ch;
             int i;
             char ch;
-            for (i=0; (ch = l->input[l->pos + i]) && ch != '"' && ch != '\0'; i++) {
+            for (i=0; (ch = l->input[l->pos + i]) && ch != tok && ch != '\0'; i++) {
                 t->literal[i] = ch;
             }
             t->literal[i++] = '\0';

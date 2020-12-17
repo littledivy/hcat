@@ -29,10 +29,11 @@ new_reader (struct lexer *l)
 
   return r;
 }
-
+const char* quo = "\""; 
 void
 print_tokens (struct reader *r)
 {
+
   while (r->current_token.type != TOKEN_EOF)
     {
       switch (r->current_token.type)
@@ -40,11 +41,16 @@ print_tokens (struct reader *r)
 	case TOKEN_INT:
 	  LOG_YELLOW (r->current_token.literal);
 	  break;
+	case TOKEN_STRING:
+	  LOG_GREEN(quo);
+	  LOG_GREEN (r->current_token.literal);
+	  LOG_GREEN(quo);
+	 break;
 	case TOKEN_IDENT:
 	  LOG_RED (r->current_token.literal);
 	  break;
 	default:
-	  printf (r->current_token.literal);
+	  printf ("%s", r->current_token.literal);
 	  break;
 	}
       next_token (r);
