@@ -3,6 +3,6 @@ package main
 import "fmt"
 
 fn main() {
-  println("Hello, World!");
+  println(1);
 }
 

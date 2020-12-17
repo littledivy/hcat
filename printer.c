@@ -38,13 +38,13 @@ print_tokens (struct reader *r)
       switch (r->current_token.type)
 	{
 	case TOKEN_INT:
-	 // LOG_YELLOW (r->current_token.literal);
+	  LOG_YELLOW (r->current_token.literal);
 	  break;
 	case TOKEN_IDENT:
-	 // LOG_RED (r->current_token.literal);
+	  LOG_RED (r->current_token.literal);
 	  break;
 	default:
-	 // printf (r->current_token.literal);
+	  printf (r->current_token.literal);
 	  break;
 	}
       next_token (r);

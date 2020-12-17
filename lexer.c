@@ -18,14 +18,11 @@ int gettoken(struct lexer *l, struct token *t) {
     char ch_next = l->input[l->pos];
  
     switch (ch) {
-        case ' ' || '\t' || '\r':
-            t->type = TOKEN_WHITESPACE;
-            t->literal[0] = ch;
-            t->literal[1] = '\0';
-        break;
         case '\n':
-            
-            t->type = TOKEN_NEWLINE;
+        case ' ':
+        case '\t':
+        case '\r':
+            t->type = TOKEN_WHITESPACE;
             t->literal[0] = ch;
             t->literal[1] = '\0';
         break;
