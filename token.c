@@ -25,6 +25,7 @@ static const char *token_names[] = {
     "==",
     "!=",
     ",",
+    ".",
     ";",
     "(",
     ")",
@@ -39,7 +40,7 @@ void get_ident(struct token *t) {
     // TODO: Proper implementation, using simple hashmap probably
     if (strcmp(t->literal, "let") == 0) {
        t->type = TOKEN_LET;
-    } else if (strcmp(t->literal, "fn") == 0) {
+    } else if (strcmp(t->literal, "func") == 0) {
         t->type = TOKEN_FUNCTION;
     } else if (strcmp(t->literal, "true") == 0) {
         t->type = TOKEN_TRUE;

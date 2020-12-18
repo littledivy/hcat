@@ -37,6 +37,7 @@ enum token_type {
     TOKEN_RBRACKET,
     TOKEN_WHITESPACE,
     TOKEN_NEWLINE,
+    TOKEN_DOT,
 };
 
 

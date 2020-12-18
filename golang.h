@@ -8,6 +8,7 @@ char* keywords[] = {
  "package",
  "import"
  "func",
+ "main",
 };
 
 int in(char **arr, int len, char *target) {
@@ -20,11 +21,11 @@ int in(char **arr, int len, char *target) {
   return 0;
 }
 
-void print_token(char* tok) {
-  if(in(keywords, strlen(*keywords), tok)) {
+int print_token(char* tok) {
+  if(in(keywords, 5, tok)) {
     // Print keywords
     LOG_RED(tok);
-  } else {
-    printf("%s", tok);
+    return 1;
   }
+  return 0;
 }

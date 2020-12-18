@@ -58,8 +58,9 @@ print_tokens (struct reader *r)
 	  LOG_GREEN(quo);
 	 break;
 	case TOKEN_IDENT:
-	  print_token (r->current_token.literal);
-	  break;
+	  if(print_token (r->current_token.literal)) {
+	     break; 
+	  }
 	case TOKEN_SLASH:
 	  if(r->next_token.type == TOKEN_SLASH) {
 	    render_comments(r);

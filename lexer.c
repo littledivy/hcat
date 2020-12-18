@@ -137,6 +137,12 @@ int gettoken(struct lexer *l, struct token *t) {
             t->literal[0] = ch;
             t->literal[1] = '\0';
         break;
+        
+        case '.': 
+            t->type = TOKEN_DOT;
+            t->literal[0] = ch;
+            t->literal[1] = '\0';
+        break;
 
         // XXX(FIXME): re-design string parsing, include quotes.
         case '\'':
